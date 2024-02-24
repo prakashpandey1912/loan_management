@@ -5,33 +5,62 @@ const rows = [
   {
     key: "1",
     sno: "1",
-    name: "Tony Reichert",
-    startDate: "20/19/2000",
-    role: "CEO",
-    pendingLoan:"1000",
-    totalLoad: "10000",
-    status: "Active",
+    name: "Deepak Pandey",
+    monthlyEmi: "1000",
+    totalLoan: "100000",
     sewaSulk: "250",
+    loanGiven: "10000",
+    interest: "1000",
+    delayFine: "500",
+    pendingLoan: "90000",
+    startDate: "30/10/2000",
     endDate: "30/10/2000",
     terminateServiceCharge: "1000"
   },
   {
     key: "2",
-    name: "Zoey Lang",
-    role: "Technical Lead",
-    status: "Paused",
+    sno: "2",
+    name: "Prakash Pandey",
+    monthlyEmi: "1000",
+    totalLoan: "200000",
+    sewaSulk: "250",
+    loanGiven: "100000",
+    interest: "10000",
+    delayFine: "500",
+    pendingLoan: "100000",
+    startDate: "30/10/2000",
+    endDate: "30/10/2000",
+    terminateServiceCharge: "1000"
   },
   {
     key: "3",
-    name: "Jane Fisher",
-    role: "Senior Developer",
-    status: "Active",
+    sno: "3",
+    name: "Narayan Pandey",
+    monthlyEmi: "1000",
+    totalLoan: "50000",
+    sewaSulk: "250",
+    loanGiven: "10000",
+    interest: "1000",
+    delayFine: "500",
+    pendingLoan: "40000",
+    startDate: "30/10/2000",
+    endDate: "30/10/2000",
+    terminateServiceCharge: "1000"
   },
   {
     key: "4",
-    name: "William Howard",
-    role: "Community Manager",
-    status: "Vacation",
+    sno: "4",
+    name: "Balaba",
+    monthlyEmi: "1000",
+    totalLoan: "50000",
+    sewaSulk: "250",
+    loanGiven: "10000",
+    interest: "1000",
+    delayFine: "500",
+    pendingLoan: "40000",
+    startDate: "30/10/2000",
+    endDate: "30/10/2000",
+    terminateServiceCharge: "1000"
   },
 ];
 
@@ -45,23 +74,11 @@ const columns = [
     label: "NAME",
   },
   {
-    key: "role",
-    label: "ROLE",
+    key: "monthlyEmi",
+    label: "Monthly Emi",
   },
   {
-    key: "startDate",
-    label: "Start Date",
-  },
-  {
-    key: "status",
-    label: "STATUS",
-  },
-  {
-    key: "pendingLoan",
-    label: "Pending Loan amount"
-  },
-  {
-    key: "totalLoad",
+    key: "totalLoan",
     label: "Total Loan amount"
   },
   {
@@ -69,12 +86,28 @@ const columns = [
     label: "Sewa Sulk amount"
   },
   {
-    key: "endDate",
-    label: "End date"
+    key: "loanGiven",
+    label: "Monthly Loan Received",
   },
   {
-    key:"terminateServiceCharge",
-    label: "Termination Service charge"
+    key: "interest",
+    label: "Interest",
+  },
+  {
+    key: "pendingLoan",
+    label: "Pending Loan amount"
+  },
+  {
+    key: "delayFine",
+    label: "Fine",
+  },
+  {
+    key: "startDate",
+    label: "Start Date",
+  },
+  {
+    key: "endDate",
+    label: "End date"
   }
 ];
 
