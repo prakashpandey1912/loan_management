@@ -64,12 +64,13 @@ export default function Loan() {
   ];
 
   const [numLoanReturn, setNumLoanReturn] = useState(0);
-  const [numLoanTaken, setNumLoanTaken] = useState(1);
+  const [numLoanTaken, setNumLoanTaken] = useState(0);
+  const [userGivenMonthlyEMI, setUserGivenMonthlyEMI] = useState(false);
 
   const LoanReturnForm = () => {
     return (
       <div className="mb-8">
-        <p className="mb-2 font-bold">Loan Return</p>
+        <p className="mb-2 font-bold">Loan Return Form</p>
         <div className="flex flex-col gap-4">
           <Select label="Select loan taken person" className="max-w-xs">
             {User.map((user) => (
@@ -79,6 +80,11 @@ export default function Loan() {
             ))}
           </Select>
           <Input type="number" label="Loan Return Amount" />
+          <Input type="date" label="Loan Return Date" />
+         
+          <Button onClick={handleDeleteReturn} className="mr-2" color="default">
+            Add
+          </Button>
           <Button onClick={handleDeleteReturn} className="mr-2" color="danger">
             Delete
           </Button>
@@ -90,7 +96,7 @@ export default function Loan() {
   const LoanTakenForm = () => {
     return (
       <div className="mb-8">
-        <p className="mb-2 font-bold">Loan Taking</p>
+        <p className="mb-2 font-bold">Loan Taking Form</p>
         <div className="flex flex-col gap-4">
           <Select label="Select loan taken person" className="max-w-xs">
             {User.map((user) => (
@@ -99,11 +105,43 @@ export default function Loan() {
               </SelectItem>
             ))}
           </Select>
-          <Input type="number" label="Loan taking Amount" />
+          <Input type="number" label="Current Loan"/>
+
+
+          <Input type="number" label="New Loan Amount" />
+          <Input type="date" label="New Loan Date" />
+          <Button onClick={handleDeleteReturn} className="mr-2" color="default">
+            Add
+          </Button>
           <Button onClick={handleDeleteTaken} className="mr-2" color="danger">
             Delete
           </Button>
         </div>
+      </div>
+    );
+  };
+
+  const MonthlyEMIUserForm = () => {
+    return (
+         <div className="mb-8">
+        <p className="mb-2 font-bold">Instalment tracking Form</p>
+        <Button onClick={handleAddEMI} className="mr-2" color="default">
+          Update
+        </Button>
+        <Button onClick={handleAddEMI} className="mr-2" color="danger">
+          Close
+        </Button>
+        {User.map((user: any) => {
+          return (
+            <div className="flex p-2" key={user.label}>
+              <p className="flex items-center mr-2">{user.label}</p>
+              <Select label="Select EMI" className="max-w-xs">
+                <SelectItem value={"Given"}>{"Not Given"}</SelectItem>
+                <SelectItem value={"Given"}>{"Given"}</SelectItem>
+              </Select>
+            </div>
+          );
+        })}
       </div>
     );
   };
@@ -123,14 +161,22 @@ export default function Loan() {
     setNumLoanTaken(numLoanTaken + 1);
   };
 
+  const handleAddEMI = () => {
+    setUserGivenMonthlyEMI(!userGivenMonthlyEMI);
+  };
+
   return (
     <div className="p-8 max-w-screen-md mx-auto">
       <div className="flex">
         <Button onClick={handleLoanReturn} className="m-8">
-          Add More Loan Returning User
+          Add Loan Returning User
         </Button>
         <Button onClick={handleLoanTaken} className="m-8">
-          Add More Loan Taking User
+          Add Loan Taking User
+        </Button>
+
+        <Button onClick={handleAddEMI} className="m-8">
+          Monthly Instalment User
         </Button>
       </div>
       {[...Array(numLoanReturn)].map((_, index) => (
@@ -139,6 +185,7 @@ export default function Loan() {
       {[...Array(numLoanTaken)].map((_, index) => (
         <LoanTakenForm key={index} />
       ))}
+      {userGivenMonthlyEMI && <MonthlyEMIUserForm />}
     </div>
   );
 }

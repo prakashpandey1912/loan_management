@@ -87,7 +87,7 @@ const columns = [
   },
   {
     key: "loanGiven",
-    label: "Monthly Loan Received",
+    label: "Monthly Loan Return",
   },
   {
     key: "interest",
